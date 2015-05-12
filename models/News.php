@@ -1,7 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: байрам
- * Date: 12.05.2015
- * Time: 7:30
- */ 
+require_once __DIR__."/../classes/DB_class_.php";
+
+class News{
+    public $id;
+    public $title;
+    public $desc;
+    public $pubdate;
+
+   static  public function getAll()
+    {
+        $db = new DB();
+        $sql = "SELECT * FROM `news`";
+        return $db->queri($sql);
+    }
+}

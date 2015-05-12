@@ -15,5 +15,21 @@ class DB {
 
     }
 
+    public function queri($sql)
+    {
+        $res = mysql_query($sql);
+        if (false === $res)
+        {
+            return false;
+        }
+
+        $ret = [];
+        while ($row = mysql_fetch_object($res))
+        {
+            $ret[] = $row;
+        }
+        return $ret;
+    }
+
 }
 
