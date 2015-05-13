@@ -10,26 +10,17 @@ class DB {
 
     public function __constuct()
     {
-        mysql_connect('localhost', 'root', '');
-        mysql_select_db('test');
+        $link = "'localhost', 'root', '', 'test'";
+         mysqli_connect($link);
 
     }
 
-    public function queri($sql)
+    public function query($string)
     {
-        $res = mysql_query($sql);
-        if (false === $res)
-        {
-            return false;
-        }
-
-        $ret = [];
-        while ($row = mysql_fetch_object($res))
-        {
-            $ret[] = $row;
-        }
-        return $ret;
+        $res = $this->query($string);
+        return $res;
     }
+
 
 }
 
