@@ -8,16 +8,18 @@
 
 class DB {
 
+    private $dbh;
     public function __constuct()
     {
-        $link = "'localhost', 'root', '', 'test'";
-         mysqli_connect($link);
-
+        $this->$dbh = new PDO('mysql:dbname=test;host=localhost', 'root', '');//Подключаемся к БД
     }
-
-    public function query($string)
+    //метот прнимает два параметра 1-сам запрось 2-подстановки
+    public function query($sql, $param = [])
     {
-        $res = $this->query($string);
+        $sth = $this->dbh->prepare($sql);
+        $sth-.execute($param);
+        $res = $sth->fetchAll();
+
         return $res;
     }
 
