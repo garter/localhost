@@ -1,4 +1,9 @@
 <?php
+//$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+//$pathParts = explode('/', $path);
+//var_dump($pathParts);
+//die;
+
 mysql_connect('localhost', 'root', '');
 mysql_select_db('test');
 $res = mysql_query('SELECT * FROM `news`');
